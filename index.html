@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LE TANDY ASTRONOMICAL MOON & EARTH CLOCK</title>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <title>Calculating a Location from a Mouse Click</title>
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+  <link rel="stylesheet" type="text/css" href="./css/demo.css" />
+  <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/main.css">
+  <script type="text/javascript" src='./js/test-credentials.js'></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data-10-year-range.js"></script>
+</head>
+<body id="markers-on-the-map">
+  <div id="moon-container">
+    <div class="title-container">
+      <p class='title'>LE TANDY ASTRONOMICAL MOON & EARTH CLOCK</p>
+      <p class="main-title">MOON</p>
+      <div class="clock-container">
+		<div class="flex-container">
+  		  <div class="year">
+		    <p class="field-title">Lunar Year (AD)</p>
+		    <p class="field-content">2021</p>
+		  </div>
+		  <div class="date">
+		    <p class="field-title">Day (1-29)</p>
+		    <p class="field-content">29</p>
+		  </div>
+		</div>
+		<p class="strong-text">ante meridiem (a.m.)</p>
+		<div>
+		  <p class="detail-time">15:01:04</p>
+		  <p class="field-title">Lunar Time Hour(24):Minute(24):Second(60)</p>
+		</div>
+      </div>
+    </div>
+    <div class="top-container center-container">
+      <div class="left-container">
+        <img class='ball' src='./images/earth_1.png'/>
+        <p class='field-content'>Earth Phase</p>
+      </div>
+      <div class="right-container">
+        <img class='ball' src='./images/moon_1.png'/>
+        <p class='field-content'>Moon Phase</p>
+      </div>
+    </div>
+    <div class="bottom-container center-container">
+      <div class="location-container">
+        <p class="field-title">Location</p>
+        <p class="field-content yellow-text">Taipei</p>
+      </div>
+      <p class="field-title">Moon Map</p>
+	  <div class="co-ordinate-container">
+        <p class="field-title">Co-ordinate</p>
+        <p id="moon-map-co-ordinate" class="field-content yellow-text"></p>
+	  </div>
+    </div>
+  </div>
+  <div id="earth-container">
+    <div class="title-container">
+      <p class='title'>LE TANDY ASTRONOMICAL MOON & EARTH CLOCK</p>
+      <p class="main-title">EARTH</p>
+      <div class="clock-container">
+		<div class="flex-container">
+  		  <div class="year">
+		    <p class="field-title">Year (AD)</p>
+		    <p class="field-content"></p>
+		  </div>
+		  <div class="month">
+		    <p class="field-title">Month (1-12)</p>
+		    <p class="field-content"></p>
+		  </div>
+		  <div class="day">
+		    <p class="field-title">Day (1-31)</p>
+		    <p class="field-content"></p>
+		  </div>
+		</div>
+		<p class="strong-text black-text">Monday</p>
+		<div>
+		  <p class="detail-time"></p>
+		  <p class="field-title">Time Hour(24):Minute(60):Second(60)</p>
+		</div>
+      </div>
+    </div>
+    <div class="top-container center-container">
+      <div class="left-container">
+        <img class='ball' src='./images/moon_1.png'/>
+        <p class='field-content'>Moon Phase</p>
+      </div>
+      <div class="right-container">
+		<div id="world-tide" class="world-tide-container field-content">
+		  <div class="field-title interweave-color-text">
+		    <p>Low Tide</p>
+		    <p>High Tide</p>
+	  	    <p>Low Tide</p>
+		    <p>High Tide</p>
+		  </div>
+		  <div class="field-content interweave-color-text">
+  		    <p>03:08</p>
+		    <p>10:04</p>
+		    <p>13:16</p>
+		    <p>20:09</p>
+		  </div>
+		</div>
+      </div>
+    </div>
+    <div class="bottom-container center-container">
+      <div class="location-container">
+        <p class="field-title green-text">Location</p>
+        <p id="world-map-location" class="field-content red-text">Taipei</p>
+      </div>
+	  <div class="world-map">
+        <p class="field-title">World Map</p>
+	    <div id="map"></div>
+	  </div>
+	  <div class="co-ordinate-container">
+        <p class="field-title green-text">Co-ordinate</p>
+        <p id="world-map-co-ordinate" class="field-content red-text"></p>
+	  </div>
+    </div>
+  </div>
+  <script type="text/javascript" src='./js/demo.js'></script>
+</body>
+</html>
