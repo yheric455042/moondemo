@@ -75,7 +75,7 @@ function setupWorldTimer(){
     var timestamp = moment().tz(zone)
     var week_day = WEEK[timestamp.day()];
     var year = timestamp.year();
-    var month = timestamp.month()+1;
+    var month = formatTime(timestamp.month()+1);
     var day = formatTime(timestamp.date());
     var hours = formatTime(timestamp.hour());
     var minutes = formatTime(timestamp.minutes());
