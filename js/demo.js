@@ -76,7 +76,7 @@ function setupWorldTimer(){
     var week_day = WEEK[timestamp.date()];
     var year = timestamp.year();
     var month = timestamp.month()+1;
-    var day = timestamp.date();
+    var day = formatTime(timestamp.date());
     var hours = formatTime(timestamp.hour());
     var minutes = formatTime(timestamp.minutes());
     var seconds = formatTime(timestamp.seconds());
@@ -84,6 +84,7 @@ function setupWorldTimer(){
     document.querySelector('#earth-container .year .field-content').innerText = year;
     document.querySelector('#earth-container .month .field-content').innerText = month;
     document.querySelector('#earth-container .day .field-content').innerText = day;
+    document.querySelector('#earth-container .week-day').innerText = week_day;
     document.querySelector('#earth-container .detail-time').innerText = hours + ':' + minutes  + ':' + seconds;
   }, 1000);
 };
