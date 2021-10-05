@@ -73,7 +73,7 @@ function setupWorldTimer(){
     //TODO change timezone when you need
     // can use moment.tz.names() show all timezone
     var timestamp = moment().tz(zone)
-    var week_day = WEEK[timestamp.date()];
+    var week_day = WEEK[timestamp.day()];
     var year = timestamp.year();
     var month = timestamp.month()+1;
     var day = formatTime(timestamp.date());
